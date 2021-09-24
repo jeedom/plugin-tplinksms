@@ -75,13 +75,14 @@ class tplinksms extends eqLogic {
       $cron = cron::byClassAndFunction(__CLASS__, 'daemon');
       if (!is_object($cron)) {
         $cron = new cron();
-        $cron->setClass(__CLASS__);
-        $cron->setFunction('daemon');
-        $cron->setEnable(1);
-        $cron->setDeamon(1);
-        $cron->setTimeout(1440);
-        $cron->setSchedule('* * * * *');
-        $cron->save();
+        $cron->setClass(__CLASS__)
+        ->setFunction('daemon')
+        ->setEnable(1)
+        ->setDeamon(1)
+        ->setDeamonSleepTime(2)
+        ->setTimeout(1440)
+        ->setSchedule('* * * * *')
+        ->save();
       }
       $cron->run();
     }
@@ -112,22 +113,17 @@ class tplinksms extends eqLogic {
   }
 
   public static function daemon() {
-    $starttime = microtime (true);
     if (!$router = self::getRouter()) {
-      $router = (new tplinksms)
-      ->setEqType_name(__CLASS__)
+      $router = new tplinksms();
+      $router->setEqType_name(__CLASS__)
       ->setLogicalId('router')
       ->setName(__('SMS TP-Link MR',__FILE__))
-      ->setIsEnable(1)
-      ->setIsVisible(1)
+      ->setIsEnable(0)
+      ->setIsVisible(0)
       ->save();
     }
     if ($router->getIsEnable()) {
       $router->poll();
-    }
-    $endtime = microtime (true);
-    if ($endtime - $starttime < 1) {
-      usleep(floor((1 + $starttime - $endtime)*1000000));
     }
   }
 

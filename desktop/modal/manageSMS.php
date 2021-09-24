@@ -35,7 +35,6 @@ $router = tplinksms::getRouter();
         <?php endif ?>
       </div>
       <div class="col-sm-8">
-        <!-- <div class="router-contacts"></div> -->
         <table class="table table-condensed">
           <caption><i class="fas fa-users"></i> {{Contacts enregistrés}}</caption>
           <thead>

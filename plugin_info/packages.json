@@ -1,8 +1,5 @@
 {
   "apt" : {
     "nodejs" : {}
-  },
-  "yarn" : {
-    "plugins/tplinksms/resources/tplinksmsd" : {}
   }
 }
