@@ -1,0 +1,8 @@
+{
+    "url": "http://192.168.1.1",
+    "login": "admin",
+    "password": "myrouterpassword",
+    "api_listen_host": "127.0.0.1",
+    "api_listen_port": 3000,
+    "api_users": {"jeedom": "Mjeedom96"}
+}

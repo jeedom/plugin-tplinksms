@@ -1,0 +1,33 @@
+#tplinksms-body {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  margin-top:20px;
+}
+
+.router-title {
+  font-size:22px;
+  font-weight:bold!important;
+}
+
+.panel-body {
+  margin-bottom: 20px;
+}
+
+tbody > tr {
+  cursor: pointer;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+td > .btn-sm {
+  margin: 0 2px;
+  font-size: 10px!important;
+  height: 25px;
+}
+
+.info i {
+  color:unset!important;
+}
