@@ -64,7 +64,7 @@ class tplinksms extends eqLogic {
     $tplinksms_path = realpath(dirname(__FILE__) . '/../../resources/tplinksmsd');
     chdir($tplinksms_path);
     $cmd = 'sudo /usr/bin/nodejs ' . $tplinksms_path . '/api-bridge.js';
-    log::add(__CLASS__, 'info', __('Démarrage du démon SMS TPLink MR', __FILE__).' '.$cmd);
+    log::add(__CLASS__, 'info', __('Démarrage du démon TPLink SMS', __FILE__).' '.$cmd);
     exec($cmd . ' >> ' . log::getPathToLog(__CLASS__) . ' 2>&1 &');
     sleep(2);
     if (!self::getRouter()->callApi()) {
@@ -104,7 +104,7 @@ class tplinksms extends eqLogic {
   }
 
   public static function deamon_stop() {
-    log::add(__CLASS__, 'info', __('Arrêt du démon SMS TPLink MR', __FILE__));
+    log::add(__CLASS__, 'info', __('Arrêt du démon TPLink SMS', __FILE__));
     $cron = cron::byClassAndFunction(__CLASS__, 'daemon');
     if (is_object($cron)) {
       $cron->halt();
@@ -117,7 +117,7 @@ class tplinksms extends eqLogic {
       $router = new tplinksms();
       $router->setEqType_name(__CLASS__)
       ->setLogicalId('router')
-      ->setName(__('SMS TP-Link MR',__FILE__))
+      ->setName(__('TPLink SMS',__FILE__))
       ->setIsEnable(0)
       ->setIsVisible(0)
       ->save();

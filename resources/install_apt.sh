@@ -1,3 +1,4 @@
+#!/bin/bash
 PROGRESS_FILE=/tmp/dependancy_tplinksms_in_progress
 if [ ! -z $1 ]; then
 	PROGRESS_FILE=$1
@@ -133,12 +134,12 @@ else
   else
     echo "Utilisation du dépot officiel"
     curl -sL https://deb.nodesource.com/setup_${installVer}.x | sudo -E bash -
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs-legacy
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
   fi
 
   npm config set prefix ${npmPrefix} &>/dev/null
 
-	if [ $(which node | wc -l) -ne 0 ] && [ $(which nodejs | wc -l) -eq 0 ]; then
+  if [ $(which node | wc -l) -ne 0 ] && [ $(which nodejs | wc -l) -eq 0 ]; then
     ln -s $(which node) $(which node)js
   fi
 
@@ -232,12 +233,14 @@ if [ "$toReAddRepo" -ne "0" ]; then
 fi
 
 echo 50 > ${PROGRESS_FILE}
-sudo apt-get -y install yarn
-echo 75 > ${PROGRESS_FILE}
+sudo npm install --force -g yarn
+echo 70 > ${PROGRESS_FILE}
 BASEDIR=$(dirname "$0")
 cd ${BASEDIR}/tplinksmsd
 rm -rf ${BASEDIR}/tplinksmsd/node_modules
 sudo yarn install
+echo 95 > ${PROGRESS_FILE}
+sudo chown -R www-data node_modules
 echo 100 > ${PROGRESS_FILE}
 echo "********************************************************"
 echo "*             Installation terminée                    *"

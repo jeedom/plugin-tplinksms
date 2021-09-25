@@ -1,6 +1,6 @@
 {
 	"id": "tplinksms",
-	"name": "SMS TPLink 4G",
+	"name": "TPLink SMS",
 	"description": {
 		"fr_FR": "Plugin pour Jeedom permettant d'utiliser les fonctions SMS des routeurs 4G TP-Link MR-XXX avec la prise en charge des interactions et du ASK. La compatibilité est confirmée avec les modèles Archer MR-600, Archer MR-200 v5 et TL-MR6400 v5. \nAttention : il n'est pas possible d'accéder à l'interface web du routeur lorsque le démon du plugin est démarré."
 	},
@@ -12,8 +12,8 @@
 	"hasDependency": true,
 	"hasOwnDeamon": true,
 	"maxDependancyInstallTime": 30,
-    "changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/changelog",
-    "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/",
+	"changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/changelog",
+	"documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/",
 	"language": [
 		"fr_FR",
 		"en_US",

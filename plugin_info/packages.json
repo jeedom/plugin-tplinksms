@@ -1,5 +1,13 @@
 {
-  "apt" : {
-    "nodejs" : {}
+  "apt": {
+    "nodejs": {}
+  },
+  "npm": {
+    "yarn": {}
+  },
+  "yarn": {
+    "plugins/tplinksms/resources/tplinksmsd": {
+      "remark": "{{Dépendances TPLink SMS}}"
+    }
   }
 }
