@@ -63,7 +63,7 @@ class tplinksms extends eqLogic {
     }
     $tplinksms_path = realpath(dirname(__FILE__) . '/../../resources/tplinksmsd');
     chdir($tplinksms_path);
-    $cmd = 'sudo /usr/bin/nodejs ' . $tplinksms_path . '/api-bridge.js';
+    $cmd = 'sudo /usr/bin/node ' . $tplinksms_path . '/api-bridge.js';
     log::add(__CLASS__, 'info', __('Démarrage du démon TPLink SMS', __FILE__).' '.$cmd);
     exec($cmd . ' >> ' . log::getPathToLog(__CLASS__) . ' 2>&1 &');
     sleep(2);
