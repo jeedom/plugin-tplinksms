@@ -27,17 +27,17 @@ try {
   ajax::init();
 
   if (init('action') == 'getSMS') {
-    $data = tplinksms::getRouter()->callApi(init('type'), 'GET', ['all'=>true]);
+    $data = tplinksms::callApi(init('type'), 'GET', ['all' => true]);
     ajax::success($data);
   }
 
   if (init('action') == 'updateSMS') {
-    tplinksms::getRouter()->callApi('inbox/'.init('sms_order'), 'PATCH');
+    tplinksms::callApi('inbox/' . init('sms_order'), 'PATCH');
     ajax::success();
   }
 
   if (init('action') == 'deleteSMS') {
-    tplinksms::getRouter()->callApi(init('url'), 'DELETE');
+    tplinksms::callApi(init('url'), 'DELETE');
     ajax::success();
   }
 
