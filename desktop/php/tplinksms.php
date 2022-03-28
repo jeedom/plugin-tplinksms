@@ -11,7 +11,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
 		<legend><i class="fas fa-cog"></i>  {{Gestion}}</legend>
 		<div class="eqLogicThumbnailContainer">
-			<?php if (tplinksms::deamon_info()['state'] == 'ok') { ?>
+			<?php if (count($eqLogics) > 0) { ?>
 				<div class="cursor eqLogicAction logoPrimary" data-action="manageSMS">
 					<i class="fas fa-sms"></i>
 					<br>
@@ -25,8 +25,17 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			</div>
 		</div>
 		<legend><i class="fas fa-sim-card"></i> {{Mon routeur 4G TP-Link}}</legend>
-		<div class="eqLogicThumbnailContainer">
-			<?php
+		<?php	if (count($eqLogics) == 0) {
+			echo '<br/><div class="text-center" style="font-size:1.2em;font-weight:bold;">{{Aucun routeur TP-Link n\'est paramétré. Installer les dépendances et démarrer le démon pour commencer.}}</div>';
+		} else {
+			echo '<div class="input-group" style="margin:5px;">';
+			echo '<input class="form-control roundedLeft" placeholder="{{Rechercher}}" id="in_searchEqlogic"/>';
+			echo '<div class="input-group-btn">';
+			echo '<a id="bt_resetSearch" class="btn" style="width:30px"><i class="fas fa-times"></i></a>';
+			echo '<a class="btn roundedRight hidden" id="bt_pluginDisplayAsTable" data-coreSupport="1" data-state="0"><i class="fas fa-grip-lines"></i></a>';
+			echo '</div>';
+			echo '</div>';
+			echo '<div class="eqLogicThumbnailContainer">';
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				$imgSrc = ($eqLogic->getConfiguration('model', '') != '') ? '/plugins/tplinksms/core/config/images/'.$eqLogic->getConfiguration('model').'.png' : $plugin->getPathImgIcon();
@@ -36,16 +45,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '</div>';
 			}
-			?>
-		</div>
+			echo '</div>';
+		}	?>
 	</div>
 
-	<div class="col-xs-12 eqLogic" style="display: none;">
+	<div class="col-xs-12 eqLogic" style="display:none;">
 		<div class="input-group pull-right" style="display:inline-flex;">
 			<span class="input-group-btn">
 				<a class="btn btn-sm btn-default eqLogicAction roundedLeft" data-action="configure"><i class="fas fa-cogs"></i><span class="hidden-xs"> {{Configuration avancée}}</span>
-				</a><a class="btn btn-sm btn-success eqLogicAction roundedRight" data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}
-				</a>
+				</a><a class="btn btn-sm btn-success eqLogicAction roundedRight" data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
 			</span>
 		</div>
 		<ul class="nav nav-tabs" role="tablist">
@@ -128,7 +136,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				<a class="btn btn-info btn-sm pull-right cmdAction" data-action="add" style="margin-top:5px;">
 					<i class="fas fa-user-plus"></i> {{Ajouter un contact}}
 				</a>
-				<br/><br/>
+				<br>
 				<table id="table_cmd" class="table table-bordered table-condensed">
 					<thead>
 						<tr>
@@ -136,7 +144,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<th>{{Profil Jeedom}}</th>
 							<th>{{N° téléphone}}</th>
 							<th>{{Options}}</th>
-							<th>{{Action}}</th>
+							<th>{{Actions}}</th>
 						</tr>
 					</thead>
 					<tbody>
