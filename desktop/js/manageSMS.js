@@ -58,7 +58,9 @@ $('#inbox, #outbox').on('click', '.btn-danger', function() {
     bootbox.confirm('{{Êtes-vous sûr de vouloir supprimer le SMS}} '+ panel.attr('id')+'/'+sms_order + ' ?', function(result) {
       if (result) {
         deleteSMS(panel.attr('id')+'/'+sms_order)
-        refresh(panel.attr('id'))
+        setTimeout(function() {
+          refresh(panel.attr('id'))
+        }, 2000)
       }
     })
   }
@@ -70,7 +72,9 @@ $('#inbox, #outbox').on('click', '.btn-danger', function() {
           deleteSMS(panel.attr('id')+'/'+$(this).closest('tr').attr('data-sms_order'))
           $(this).prop('checked', false).trigger('change')
         })
-        window.location.reload(true)
+        setTimeout(function() {
+          refresh(panel.attr('id'))
+        }, 2000)
       }
     })
   }
@@ -109,20 +113,14 @@ function refresh(type = 'inbox') {
       var tr = ''
       $.each(data.result, function(i) {
         tr += '<tr class="'+((data.result[i]['unread']) ? 'info' : '')+'" data-sms_order="'+(i+1)+'">'
-        tr += '<td>'
-        if (type == 'inbox') {
-          tr += '<input type="checkbox">'
-        }
-        tr+='</td>'
+        tr += '<td><input type="checkbox"></td>'
         tr += '<td>'+data.result[i]['username']+'</td>'
         tr += '<td>'+data.result[i]['datetime']+'</td>'
         tr += '<td>'+data.result[i]['content']+'</td>'
         tr += '<td class="buttons">'
-        if (type == 'inbox') {
-          tr += '<a class="btn btn-sm btn-danger" title="{{Supprimer}}"><i class="fas fa-trash-alt"></i></a>'
-          if (data.result[i]['unread']) {
-            tr += '<a class="btn btn-sm btn-primary" title="{{Marquer comme lu}}"><i class="fas fa-envelope-open-text"></i></a>'
-          }
+        tr += '<a class="btn btn-sm btn-danger" title="{{Supprimer}}"><i class="fas fa-trash-alt"></i></a>'
+        if (type == 'inbox' && data.result[i]['unread']) {
+          tr += '<a class="btn btn-sm btn-primary" title="{{Marquer comme lu}}"><i class="fas fa-envelope-open-text"></i></a>'
         }
         tr += '</td>'
         tr +='</tr>'

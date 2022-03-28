@@ -31,7 +31,7 @@ $router = tplinksms::getRouter();
     <div class="panel-body no-padding">
       <div class="col-sm-4">
         <?php if ($router->getConfiguration('model', '') != '') : ?>
-          <img src="/plugins/tplinksms/core/config/images/<?=$router->getConfiguration('model')?>.png" width="150">
+          <img src="/plugins/tplinksms/core/config/images/<?= $router->getConfiguration('model') ?>.png" width="150">
         <?php endif ?>
       </div>
       <div class="col-sm-8">
@@ -48,11 +48,11 @@ $router = tplinksms::getRouter();
           <tbody>
             <?php foreach ($router->getCmd('action') as $cmd) {
               if ($cmd->getSubType() == 'message') {
-                echo '<tr data-cmd_id="'.$cmd->getId().'">';
-                echo '<td>'.$cmd->getName().'</td>';
-                echo '<td>'.(($cmd->getConfiguration('user', '') != '') ? user::byId($cmd->getConfiguration('user', ''))->getLogin() : '').'</td>';
-                echo '<td>'.$cmd->getConfiguration('phonenumber', '').'</td>';
-                echo '<td><input type="checkbox" checked="'.$cmd->getConfiguration('interactions').'" disabled></td>';
+                echo '<tr data-cmd_id="' . $cmd->getId() . '">';
+                echo '<td>' . $cmd->getName() . '</td>';
+                echo '<td>' . (($cmd->getConfiguration('user', '') != '') ? user::byId($cmd->getConfiguration('user', ''))->getLogin() : '') . '</td>';
+                echo '<td>' . $cmd->getConfiguration('phonenumber', '') . '</td>';
+                echo '<td><input type="checkbox" checked="' . $cmd->getConfiguration('interactions') . '" disabled></td>';
                 echo '</tr>';
               }
             }
@@ -63,15 +63,21 @@ $router = tplinksms::getRouter();
     </div>
   </div>
   <hr class="col-xs-12">
-  <div class="alert alert-info col-xs-12 col-lg-6 text-center">
-    {{Seuls les 8 derniers SMS reçus ou envoyés sont consultables}}
-  </div>
-  <div class="col-xs-12"></div>
-  <div class="panel panel-success col-xs-12 col-lg-5 no-padding" id="inbox">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <i class="fas fa-sign-in-alt"></i>
-        {{Boite de réception}}</h3>
+  <?php if (tplinksms::deamon_info()['state'] != 'ok') { ?>
+    <div class="alert alert-danger col-xs-12 col-lg-6 text-center">
+      {{Veuillez démarrer le démon pour accéder aux SMS.}}
+    </div>
+  <?php } else { ?>
+    <div class="alert alert-info col-xs-12 col-lg-6 text-center">
+      {{Seuls les 8 derniers SMS reçus ou envoyés sont consultables}}
+    </div>
+    <div class="col-xs-12"></div>
+    <div class="panel panel-success col-xs-12 col-lg-5 no-padding" id="inbox">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <i class="fas fa-sign-in-alt"></i>
+          {{Boite de réception}}
+        </h3>
       </div>
       <table class="table table-hover">
         <thead>
@@ -84,12 +90,12 @@ $router = tplinksms::getRouter();
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($router->callApi('inbox', 'GET', ['all'=>true]) as $i=>$smsin) {
-            echo '<tr class="'.(($smsin['unread']) ? 'info' : '').'" data-sms_order="'.($i+1).'">';
+          <?php foreach (tplinksms::callApi('inbox', 'GET', ['all' => true]) as $i => $smsin) {
+            echo '<tr class="' . (($smsin['unread']) ? 'info' : '') . '" data-sms_order="' . ($i + 1) . '">';
             echo '<td><input type="checkbox"></td>';
-            echo '<td>'.$smsin['username'].'</td>';
-            echo '<td>'.$smsin['datetime'].'</td>';
-            echo '<td>'.$smsin['content'].'</td>';
+            echo '<td>' . $smsin['username'] . '</td>';
+            echo '<td>' . $smsin['datetime'] . '</td>';
+            echo '<td>' . $smsin['content'] . '</td>';
             echo '<td class="buttons">';
             echo '<a class="btn btn-sm btn-danger" title="{{Supprimer}}"><i class="fas fa-trash-alt"></i></a>';
             if ($smsin['unread']) {
@@ -100,8 +106,8 @@ $router = tplinksms::getRouter();
           } ?>
         </tbody>
       </table>
-      <div class="panel-footer">
-        <a class="btn btn-sm btn-danger hidden"><i class="fas fa-trash-alt"></i>  {{Supprimer la sélection}}</a>
+      <div class="panel-footer" style="background-color:inherit;">
+        <a class="btn btn-sm btn-danger hidden"><i class="fas fa-trash-alt"></i> {{Supprimer la sélection}}</a>
         <a class="btn btn-sm btn-primary hidden"><i class="fas fa-envelope-open-text"></i> {{Marquer comme lu(s)}}</a>
       </div>
     </div>
@@ -110,36 +116,38 @@ $router = tplinksms::getRouter();
       <div class="panel-heading">
         <h3 class="panel-title">
           <i class="fas fa-sign-out-alt"></i>
-          {{Boite d'envoi}}</h3>
-        </div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th></th>
-              <th>{{Destinataire}}</th>
-              <th>{{Date}}</th>
-              <th>{{Message}}</th>
-              <!-- <th>{{Actions}}</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($router->callApi('outbox', 'GET', ['all'=>true]) as $i=>$smsout) {
-              echo '<tr data-sms_order="'.($i+1).'">';
-              echo '<td></td>';
-              echo '<td>'.$smsout['username'].'</td>';
-              echo '<td>'.$smsout['datetime'].'</td>';
-              echo '<td>'.$smsout['content'].'</td>';
-              // echo '<td class="buttons">';
-              // echo '<a class="btn btn-sm btn-danger" title="{{Supprimer}}"><i class="fas fa-trash-alt"></i></a>';
-              // echo '</td>';
-              echo '</tr>';
-            } ?>
-          </tbody>
-        </table>
-        <div class="panel-footer">
-          <!-- <a class="btn btn-sm btn-danger hidden"><i class="fas fa-trash-alt"></i> {{Supprimer la sélection}}</a> -->
-        </div>
+          {{Boite d'envoi}}
+        </h3>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{Destinataire}}</th>
+            <th>{{Date}}</th>
+            <th>{{Message}}</th>
+            <th>{{Actions}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach (tplinksms::callApi('outbox', 'GET', ['all' => true]) as $i => $smsout) {
+            echo '<tr data-sms_order="' . ($i + 1) . '">';
+            echo '<td><input type="checkbox"></td>';
+            echo '<td>' . $smsout['username'] . '</td>';
+            echo '<td>' . $smsout['datetime'] . '</td>';
+            echo '<td>' . $smsout['content'] . '</td>';
+            echo '<td class="buttons">';
+            echo '<a class="btn btn-sm btn-danger" title="{{Supprimer}}"><i class="fas fa-trash-alt"></i></a>';
+            echo '</td>';
+            echo '</tr>';
+          } ?>
+        </tbody>
+      </table>
+      <div class="panel-footer" style="background-color:inherit;">
+        <a class="btn btn-sm btn-danger hidden"><i class="fas fa-trash-alt"></i> {{Supprimer la sélection}}</a>
       </div>
     </div>
+  <?php } ?>
+</div>
 
-    <?php include_file('desktop', 'manageSMS', 'js', 'tplinksms');?>
+<?php include_file('desktop', 'manageSMS', 'js', 'tplinksms'); ?>
