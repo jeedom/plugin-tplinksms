@@ -121,6 +121,7 @@ class tplinksms extends eqLogic {
   }
 
   public static function getRouter() {
+    /** @var tplinksms */
     if (!is_object($router = self::byLogicalId('router', __CLASS__))) {
       $router = new tplinksms();
       $router->setEqType_name(__CLASS__)
@@ -328,7 +329,7 @@ class tplinksms extends eqLogic {
     return $_phoneNumber;
   }
 
-  public function getPassword() {
+  public static function getPassword() {
     return config::byKey('password', __CLASS__, false);
   }
 }
