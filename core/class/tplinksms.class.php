@@ -134,7 +134,7 @@ class tplinksms extends eqLogic {
     return $router;
   }
 
-  public function setJsonConfig() {
+  public static function setJsonConfig() {
     if (self::getPassword()) {
       $jsonConf = json_encode(
         [
