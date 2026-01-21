@@ -74,6 +74,12 @@ class RouterClient {
    * @param {string} message Http response data from a call to getParm endpoint
    */
   parseEncryptionParams(message) {
+    if (typeof message === 'object') {
+      const { ee, nn, seq } = message
+      logger.info("Received encryption params (object)", { ee, nn, seq })
+      return { ee, nn, seq }
+    }
+
     // extract encryption parameters from the kv payload
     const eeExtractor = /ee="(\d+)"/ // integer
     const nnExtractor = /nn="([0-9A-F]+)"/ // hex encoded
