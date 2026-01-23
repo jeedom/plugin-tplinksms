@@ -21,23 +21,6 @@ require_once __DIR__  . '/../../../../core/php/core.inc.php';
 
 class tplinksms extends eqLogic {
 
-  public static function dependancy_info() {
-    $return = array();
-    $return['progress_file'] = jeedom::getTmpFolder(__CLASS__) . '/dependance';
-    $return['state'] = 'ok';
-    if (config::byKey('lastDependancyInstallTime', __CLASS__) == '') {
-      $return['state'] = 'nok';
-    } else if (!file_exists(__DIR__ . '/../../resources/tplinksmsd/node_modules')) {
-      $return['state'] = 'nok';
-    }
-    return $return;
-  }
-
-  public static function dependancy_install() {
-    log::remove(__CLASS__ . '_dep');
-    return array('script' => dirname(__FILE__) . '/../../resources/install_#stype#.sh ' . jeedom::getTmpFolder(__CLASS__) . '/dependance', 'log' => log::getPathToLog(__CLASS__ . '_dep'));
-  }
-
   public static function deamon_info() {
     $return = array();
     $return['log'] = __CLASS__;
@@ -121,7 +104,6 @@ class tplinksms extends eqLogic {
   }
 
   public static function getRouter() {
-    /** @var tplinksms */
     if (!is_object($router = self::byLogicalId('router', __CLASS__))) {
       $router = new tplinksms();
       $router->setEqType_name(__CLASS__)
@@ -198,20 +180,6 @@ class tplinksms extends eqLogic {
     $lastTo->setType('info')
       ->setSubType('string')
       ->save();
-
-    // $sendMessage = $this->getCmd('action', 'send_sms');
-    // if (!is_object($sendMessage)) {
-    //   $sendMessage = (new tplinksmsCmd)
-    //   ->setName(__('Envoyer SMS', __FILE__))
-    //   ->setEqLogic_id($this->getId())
-    //   ->setLogicalId('send_sms')
-    //   ->setIsVisible(0);
-    // }
-    // $sendMessage->setType('action')
-    // ->setSubType('message')
-    // ->setDisplay('title_placeholder', __('Numéro de téléphone', __FILE__))
-    // ->setDisplay('message_placeholder', __('Message', __FILE__))
-    // ->save();
   }
 
   public function poll() {
