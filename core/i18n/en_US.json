@@ -1,0 +1,102 @@
+{
+    "plugins\/tplinksms\/plugin_info\/configuration.php": {
+        "Adresse IP": "Adresse IP",
+        "Renseigner l'adresse IP du routeur (192.168.1.1 par défaut)": "Renseigner l'adresse IP du routeur (192.168.1.1 par défaut)",
+        "Mot de passe": "Mot de passe",
+        "Renseigner le mot de passe de connexion au routeur": "Renseigner le mot de passe de connexion au routeur"
+    },
+    "plugins\/tplinksms\/desktop\/modal\/manageSMS.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Contacts enregistrés": "Contacts enregistrés",
+        "Nom": "Nom",
+        "Profil": "Profil",
+        "Numéro": "Numéro",
+        "Interactions": "Interactions",
+        "Veuillez démarrer le démon pour accéder aux SMS.": "Veuillez démarrer le démon pour accéder aux SMS",
+        "Seuls les 8 derniers SMS reçus ou envoyés sont consultables": "Seuls les 8 derniers SMS reçus ou envoyés sont consultables",
+        "Boite de réception": "Boite de réception",
+        "Expéditeur": "Expéditeur",
+        "Date": "Date",
+        "Message": "Message",
+        "Actions": "Actions",
+        "Supprimer": "Supprimer",
+        "Marquer comme lu": "Marquer comme lu",
+        "Supprimer la sélection": "Supprimer la sélection",
+        "Marquer comme lu(s)": "Marquer comme lu(s)",
+        "Boite d'envoi": "Boite d'envoi",
+        "Destinataire": "Destinataire"
+    },
+    "plugins\/tplinksms\/desktop\/php\/tplinksms.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Gestion": "Gestion",
+        "Gestion SMS": "Gestion SMS",
+        "Configuration": "Configuration",
+        "Mon routeur 4G TP-Link": "Mon routeur 4G TP-Link",
+        "Aucun routeur TP-Link n\\'est paramétré. Installer les dépendances et démarrer le démon pour commencer.": "Aucun routeur TP-Link n\\'est paramétré. Installer les dépendances et démarrer le démon pour commencer",
+        "Rechercher": "Rechercher",
+        "Configuration avancée": "Configuration avancée",
+        "Sauvegarder": "Sauvegarder",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Paramètres généraux": "Paramètres généraux",
+        "Nom du routeur": "Nom du routeur",
+        "Nom de l'équipement": "Nom de l'équipement",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Options": "Options",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Informations": "Informations",
+        "Modèle": "Modèle",
+        "Non renseigné": "Non renseigné",
+        "Ajouter un contact": "Ajouter un contact",
+        "Nom": "Nom",
+        "Profil Jeedom": "Profil Jeedom",
+        "N° téléphone": "N° téléphone",
+        "Actions": "Actions"
+    },
+    "plugins\/tplinksms\/desktop\/js\/tplinksms.js": {
+        "Nom du contact": "Nom du contact",
+        "Choisir une icône": "Choisir une icône",
+        "Afficher": "Afficher",
+        "Autoriser interactions": "Autoriser interactions",
+        "Tester": "Tester",
+        "Nom de la commande": "Nom de la commande",
+        "Historiser": "Historiser",
+        "Gérer les SMS": "Gérer les SMS"
+    },
+    "plugins\/tplinksms\/desktop\/js\/manageSMS.js": {
+        "Êtes-vous sûr de vouloir supprimer le SMS": "Êtes-vous sûr de vouloir supprimer le SMS",
+        "Êtes-vous sûr de vouloir supprimer": "Êtes-vous sûr de vouloir supprimer",
+        "SMS": "SMS",
+        "Supprimer": "Supprimer",
+        "Marquer comme lu": "Marquer comme lu"
+    },
+    "plugins\/tplinksms\/core\/ajax\/tplinksms.ajax.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à :"
+    },
+    "plugins\/tplinksms\/core\/class\/tplinksms.class.php": {
+        "Veuillez renseigner le mot de passe de connexion au routeur": "Veuillez renseigner le mot de passe de connexion au routeur",
+        "Démarrage du démon TPLink SMS": "Démarrage du démon TPLink SMS",
+        "Veuillez vérifier les informations de connexion au routeur": "Veuillez vérifier les informations de connexion au routeur",
+        "Arrêt du démon TPLink SMS": "Arrêt du démon TPLink SMS",
+        "TPLink SMS": "TPLink SMS",
+        "Dernier SMS reçu": "Dernier SMS reçu",
+        "Dernier expéditeur": "Dernier expéditeur",
+        "Dernier SMS envoyé": "Dernier SMS envoyé",
+        "Dernier destinataire": "Dernier destinataire",
+        "Nouveau SMS dans la boite de réception": "Nouveau SMS dans la boite de réception",
+        "Nouveau SMS reçu de": "Nouveau SMS reçu de",
+        "Nouveau SMS dans la boite d\\'envoi": "Nouveau SMS dans la boite d\\'envoi",
+        "Nouveau SMS envoyé à": "Nouveau SMS envoyé à",
+        "Erreur de connexion au routeur": "Erreur de connexion au routeur",
+        "SMS marqué comme lu": "SMS marqué comme lu",
+        "SMS supprimé": "SMS supprimé",
+        "Veuillez renseigner un numéro de téléphone valide": "Veuillez renseigner un numéro de téléphone valide"
+    },
+    "info.json": {
+        "Plugin pour Jeedom permettant d'utiliser les fonctions SMS des routeurs 4G TP-Link MR-XXX avec la prise en charge des interactions et du ASK. La compatibilité est confirmée avec les modèles Archer MR-600, Archer MR-200 v5, TL-MR150 et TL-MR6400 v5. \nAttention : il n'est pas possible d'accéder à l'interface web du routeur lorsque le démon du plugin est démarré.": "Plugin pour Jeedom permettant d'utiliser les fonctions SMS des routeurs 4G TP-Link MR-XXX avec la prise en charge des interactions et du ASK. La compatibilité est confirmée avec les modèles Archer MR-600, Archer MR-200 v5, TL-MR150 et TL-MR6400 v5. \nAttention : il n'est pas possible d'accéder à l'interface web du routeur lorsque le démon du plugin est démarré"
+    }
+}

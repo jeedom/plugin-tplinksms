@@ -1,0 +1,34 @@
+{
+    "changelog.md": {
+        "Changelog TPLink SMS": "TPLink SMS Changelog",
+        "Changelog plugin SMS TPLink": "TPLink SMS plugin changelog",
+        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder, if there is no information about the update, it means that it only concerns updates to documentation, translation, or text",
+        "23\/01\/2026": "23\/01\/2026",
+        "Ajout de la compatibilité avec le modèle": "Added compatibility with the model",
+        "22\/09\/2021": "22\/09\/2021",
+        " IMPORTANT.": " IMPORTANT.",
+        " IMPORTANT?": " IMPORTANT?",
+        "IMPORTANT ": "IMPORTANT ",
+        " IMPORTANT]": " IMPORTANT]",
+        "[IMPORTANT]": "[IMPORTANT]",
+        "*IMPORTANT*": "*IMPORTANT*",
+        " IMPORTANT*": " IMPORTANT*",
+        " TL-MR150.": " TL-MR150.",
+        " TL-MR150?": " TL-MR150?",
+        "TL-MR150 ": "TL-MR150 ",
+        " TL-MR150]": " TL-MR150]",
+        "[TL-MR150]": "[TL-MR150]",
+        "*TL-MR150*": "*TL-MR150*",
+        " TL-MR150*": " TL-MR150*",
+        " Beta.": " Beta.",
+        " Beta?": " Beta?",
+        "Beta ": "Beta ",
+        " Beta]": " Beta]",
+        "[Beta]": "[Beta]",
+        "*Beta*": "*Beta*",
+        " Beta*": " Beta*"
+    },
+    "index.md": {
+        "Plugin SMS TPLink": "TPLink SMS Plugin"
+    }
+}

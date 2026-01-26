@@ -1,0 +1,16 @@
+{
+    "changelog.md": {
+        "Changelog TPLink SMS": "Changelog TPLink SMS",
+        "Changelog plugin SMS TPLink": "Changelog plugin SMS TPLink",
+        "IMPORTANT": "IMPORTANT",
+        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte",
+        "23\/01\/2026": "23\/01\/2026",
+        "TL-MR150": "TL-MR150",
+        "Ajout de la compatibilité avec le modèle": "Ajout de la compatibilité avec le modèle",
+        "22\/09\/2021": "22\/09\/2021",
+        "Beta": "Beta"
+    },
+    "index.md": {
+        "Plugin SMS TPLink": "Plugin SMS TPLink"
+    }
+}
