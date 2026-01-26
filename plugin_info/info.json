@@ -12,8 +12,10 @@
 	"hasDependency": true,
 	"hasOwnDeamon": true,
 	"maxDependancyInstallTime": 30,
-	"changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/changelog",
-	"documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication protocol\/tplinksms\/",
+	"changelog_beta": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/tplinksms\/beta\/changelog",
+	"documentation_beta": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/tplinksms\/beta",
+	"changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/tplinksms\/changelog",
+	"documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/tplinksms",
 	"language": [
 		"fr_FR",
 		"en_US",
